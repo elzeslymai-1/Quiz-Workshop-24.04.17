@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <nav class="nav-extended">
+        <div class="nav-wrapper center">
+          CHAT APP
+        </div>
+    </nav>
+  <br><br><br>
+        <div class="row">
+                <div class="row">
+                    <div class="input-field col s5 offset-s3">
+                        <input placeholder="Username" id="username" type="text" class="validate">
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s5 offset-s3">
+                        <input placeholder="Password" id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12 offset-s5">
+                        <div class="input-field inline">
+                            <button class="btn waves-effect waves-light" type="submit" id="signin" name="action">Sign in
+                              <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Juggrid Chetwichian</h5>
+                <p class="grey-text text-lighten-4">Juggrid Chetwichian 5730211014</p>
+                <p class="grey-text text-lighten-4">Thank for visit our websites.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="https://github.com/elzeslymai-1/Quiz-Workshop-24.04.17">Github</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container center">
+            © 2014 Copyright ElzeslyMai
+            </div>
+          </div>
+        </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        $('#signin').click(function(){
+          var username = $('#username').val();
+          var password = $('#password').val();
+
+          console.log(username);
+          console.log(password);
+
+          var url = "http://membershipwebapi977290.azurewebsites.net/api/members/signin?username="+username+"&password="+password
+          $.get(url, function(data, status){
+            console.log("Sign in : " + data.Status);
+          });
+        });
+      })
+    </script>
+</body>
+
+</html>
